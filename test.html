@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curved Zigzag Fade Line</title>
+<style>
+/* Basic Styling for Body */
+body {
+    background: #10111F;
+    padding: 4em;
+    font-family: Lato;
+    font-weight: 100;
+    color: #696B89;
+    text-indent: 1em;
+    line-height: 1;
+}
+
+h1, h2 {
+    line-height: 1;
+    margin-bottom: -0.5em;
+}
+
+h2 {
+    margin-top: 5em;
+}
+
+/* Zigzag Line Styling */
+.zigzag-line {
+    fill: none;
+    stroke-width: 2;
+    stroke: url(#gradient); /* Reference the gradient stroke */
+    stroke-dasharray: 2000; /* Total length of the path (need to adjust based on path length) */
+    stroke-dashoffset: 2000; /* Initially hide the stroke */
+    animation: draw 15s linear infinite; /* Animation to "draw" the line */
+}
+
+/* Gradient Definitions */
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+#gradient {
+    background-size: 200%;
+    animation: gradientAnimation 15s linear infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        stop-color: #62efab;
+    }
+    10% {
+        stop-color: #F2EA7D;
+    }
+    20% {
+        stop-color: #F2EA7D;
+    }
+    30% {
+        stop-color: #FF8797;
+    }
+    40% {
+        stop-color: #FF8797;
+    }
+    50% {
+        stop-color: #FF8797;
+    }
+    60% {
+        stop-color: #FF8797;
+    }
+    70% {
+        stop-color: #FF8797;
+    }
+    80% {
+        stop-color: #FF8797;
+    }
+    90% {
+        stop-color: #FF8797;
+    }
+    100% {
+        stop-color: #62efab;
+    }
+}
+
+/* Animation for drawing the path */
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0; /* Unhide the stroke by offsetting dasharray */
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG with zigzag line -->
+<svg width="100%" height="100%">
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#62efab;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#82fff4;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <path class="zigzag-line" 
+        d="M 25,0 Q 0,25 25,50 T 25,100 T 25,150 T 25,200 T 25,250 T 25,300 T 25,350 T 25,400 T 25,450 T 25,500 T 25,550 T 25,600 T 25,650 T 25,700 T 25,750 T 25,800" 
+        stroke="url(#gradient)" stroke-width="2" fill="none"/>
+</svg>
+
+</body>
+</html>
